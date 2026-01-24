@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/login"
+        android:textSize="30sp"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:paddingTop="10dp"
+        android:text="@string/login_text"
+        android:textSize="15sp"
+        android:textColor="@color/subtitle_light"
+        android:textAlignment="center" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxStrokeErrorColor="@color/red"
+        app:errorTextColor="@color/red"
+        >
+
+        <EditText
+            android:id="@+id/txt_email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:hint="@string/email_address"
+            android:background="@drawable/my_edittext"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/txt_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:hint="@string/password"
+        android:background="@drawable/my_edittext"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/roboto"
+            android:text="@string/remember_me" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textAlignment="textEnd"
+            android:fontFamily="@font/roboto"
+            android:text="@string/forgot_pass"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/primary"
+        android:fontFamily="@font/roboto"
+        android:text="Login"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/signup_part1"
+            android:textSize="15sp"
+            android:layout_weight="0.5"
+            android:textAlignment="textEnd"
+            android:textColor="@color/subtitle_light" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/signup_part2"
+            android:textSize="15sp"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="4dp"
+            android:textColor="@color/primary"
+             />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/subtitle_light"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_continue"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_button"
+            app:backgroundTint="@color/white"
+            app:icon="@drawable/facebook_icon"
+            app:iconTint="@color/black"
+            app:iconPadding="0dp"
+            app:iconGravity="textEnd"
+            />
+        <Button
+            android:id="@+id/btn_google"
+            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_button"
+            app:icon="@drawable/google_icon"
+            app:iconPadding="0dp"
+            app:iconGravity="textEnd"
+            app:backgroundTint="@color/white"
+            app:iconTint="@color/black"
+            />
+        <Button
+            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_button"
+            app:icon="@drawable/apple_icon"
+            app:iconPadding="0dp"
+            app:iconGravity="textEnd"
+            app:backgroundTint="@color/white"
+            app:iconTint="@color/black"
+            />
+    </LinearLayout>
+
+</LinearLayout>
