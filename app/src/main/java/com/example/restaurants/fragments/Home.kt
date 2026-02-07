@@ -1,15 +1,18 @@
 package com.example.restaurants.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurants.MenuDetailActivity
 import com.example.restaurants.R
 import com.example.restaurants.adapter.MyRecyclerViewAdapter
 import com.example.restaurants.databinding.FragmentHomeBinding
 import com.example.restaurants.models.MenuData
+import kotlin.jvm.java
 
 /**
  * A simple [Fragment] subclass.
@@ -34,9 +37,24 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.bind(view)
         binding.recyclerView.layoutManager =
             LinearLayoutManager(requireContext())
+
+
         val menuList = MenuData().getMenuList()
-        binding.recyclerView.adapter =
-            MyRecyclerViewAdapter(menuList)
+        val myAdapter = MyRecyclerViewAdapter(menuList)
+        myAdapter.onItemClick = { menu ->
+            val navigateToMenuDetails = Intent(requireContext(),
+                MenuDetailActivity::class.java)
+
+            navigateToMenuDetails.putExtra("NAME", menu.name)
+            navigateToMenuDetails.putExtra("AWAITING_TIME", menu.menuAwait)
+            navigateToMenuDetails.putExtra("LOCATION", menu.location)
+            navigateToMenuDetails.putExtra("PRICE", menu.price)
+            navigateToMenuDetails.putExtra("IMAGE", menu.image)
+
+            startActivity(navigateToMenuDetails)
+        }
+
+        binding.recyclerView.adapter = myAdapter
     }
 
 

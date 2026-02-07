@@ -9,6 +9,8 @@ import com.example.restaurants.models.Menu
 class MyRecyclerViewAdapter (val menuList: List<Menu>):
     RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder>() {
 
+    var onItemClick: ((Menu) -> Unit)? = null
+
     //inner class
     class MyViewHolder(val binding: RestaurantItemBinding): RecyclerView.ViewHolder(binding.root){}
 
@@ -34,5 +36,9 @@ class MyRecyclerViewAdapter (val menuList: List<Menu>):
         holder.binding.menuAwait.text = currentItem.menuAwait
         holder.binding.location.text = currentItem.location
         holder.binding.menuPrice.text = currentItem.price
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(currentItem)
+        }
     }
 }
